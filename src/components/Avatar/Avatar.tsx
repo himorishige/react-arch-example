@@ -1,6 +1,6 @@
 import { classNames } from 'src/utils';
 
-type Size = 'small' | 'medium' | 'large';
+export type Size = 'small' | 'medium' | 'large';
 
 type AvatarProps = {
   size?: Size;
