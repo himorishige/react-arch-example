@@ -24,7 +24,7 @@ This project uses many tools like:
 Create the project.
 
 ```bash
-npx degit himorishige/reactjs-vite-tailwindcss-boilerplate my-app
+npx degit himorishige/react-arch-example my-app
 ```
 
 Access the project directory.
