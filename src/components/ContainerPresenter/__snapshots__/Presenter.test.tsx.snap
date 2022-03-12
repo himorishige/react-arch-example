@@ -1,0 +1,31 @@
+// Vitest Snapshot v1
+
+exports[`<Presenter /> > should render the 5 posts as default 1`] = `
+<div>
+  <div
+    class="mb-2"
+  >
+    <img
+      class="inline-block rounded-full w-14 h-14"
+      src="https://avatars.dicebear.com/v2/male/e828b4072fdb3dc6312b67977f0b247a.svg"
+    />
+  </div>
+  <ul>
+    <li>
+      sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+    </li>
+    <li>
+      qui est esse
+    </li>
+    <li>
+      ea molestias quasi exercitationem repellat qui ipsa sit aut
+    </li>
+    <li>
+      eum et est occaecati
+    </li>
+    <li>
+      nesciunt quas odio
+    </li>
+  </ul>
+</div>
+`;
