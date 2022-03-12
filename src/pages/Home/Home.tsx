@@ -1,23 +1,24 @@
-import { useUserMutate, useUsersQuery } from 'src/hooks/useReactQuery';
+import { useReactQuery } from 'src/hooks/useReactQuery';
 
 import { Avatar } from 'src/components/Avatar';
 
 export const Home: React.VFC = () => {
-  const { data, isLoading, error } = useUsersQuery({
+  const { usePostsMutate, usePostsQuery } = useReactQuery();
+  const { data, isLoading, error } = usePostsQuery({
     deps: '1',
     params: {
-      limit: 5,
+      _limit: 5,
     },
   });
 
-  const { mutate } = useUserMutate();
+  const { mutate } = usePostsMutate();
 
   if (!data) return null;
   console.log(error);
 
   const handler = () => {
     mutate(
-      { limit: 5 },
+      { _limit: 5 },
       {
         onSuccess: () => console.log('success'),
       },
