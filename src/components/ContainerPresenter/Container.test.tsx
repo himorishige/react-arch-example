@@ -1,23 +1,13 @@
 import '@testing-library/jest-dom';
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
-import { QueryClientProvider } from 'react-query';
+import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { renderWithQueryClient } from 'src/test/test-utils';
 import { describe, it, expect } from 'vitest';
-
-import { queryClient } from 'src/lib/react-query/queryClient';
 
 import { Container } from './Container';
 
 describe('<Container />', () => {
   it('should render the 5 posts as default', async () => {
-    render(
-      <QueryClientProvider client={queryClient}>
-        <Container />
-      </QueryClientProvider>,
-    );
+    renderWithQueryClient(<Container />);
 
     waitForElementToBeRemoved(
       () => [
