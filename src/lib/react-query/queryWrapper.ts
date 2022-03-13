@@ -33,7 +33,7 @@ type Props<T> = {
   queryKey?: QueryKeysTypes;
   deps?: QueryKey;
   options?: Omit<UseQueryOptions, 'queryKey' | 'queryFn'>;
-  fetcher: () => Promise<AxiosResponse<T>>;
+  fetcher: () => Promise<T>;
 };
 
 export const useQueryWrapper = <T>({
@@ -47,7 +47,7 @@ export const useQueryWrapper = <T>({
     k,
     async () => {
       const res = await fetcher();
-      return res.data;
+      return res;
     },
     options,
   ) as UseQueryResult<T>;
@@ -63,7 +63,7 @@ export type TUseQueryOptions<T> = Partial<{
 
 // UseMutateWrapper
 type MutateProps<T> = {
-  fetcher: (variables: T) => Promise<AxiosResponse<void>>;
+  fetcher: (variables: T) => Promise<void>;
 };
 
 export const useMutateWrapper = <T>({
