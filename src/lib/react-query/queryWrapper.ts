@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import { useCallback } from 'react';
 import {
   QueryKey,
