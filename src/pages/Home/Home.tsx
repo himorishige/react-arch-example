@@ -1,3 +1,4 @@
+import { REACT_APP_VITE_SOME_KEY } from 'src/config';
 import { useReactQuery } from 'src/hooks/useReactQuery';
 
 import { Avatar } from 'src/components/Avatar';
@@ -5,7 +6,7 @@ import { Spinner } from 'src/components/Spinner';
 
 export const Home: React.VFC = () => {
   const { usePostsMutate, usePostsQuery } = useReactQuery();
-  const { data, isLoading, error } = usePostsQuery({
+  const { isLoading } = usePostsQuery({
     deps: ['Home'],
     params: {
       _limit: 5,
@@ -14,16 +15,20 @@ export const Home: React.VFC = () => {
 
   const { mutate } = usePostsMutate();
 
-  if (!data)
+  if (isLoading)
     return (
       <div className="flex justify-center items-center w-screen h-screen">
         <Spinner size="xl" />
       </div>
     );
 
-  const handler = () => {
+  const handler = (): void => {
     mutate(
-      { _limit: 5 },
+      {
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      },
       {
         onSuccess: () => console.log('success'),
       },
@@ -35,8 +40,7 @@ export const Home: React.VFC = () => {
       <div className="py-16 px-4 mx-auto max-w-screen-xl sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold tracking-wide text-blue-600 uppercase">
-            Welcome to
-            {process.env.REACT_APP_VITE_SOME_KEY}
+            Welcome to {REACT_APP_VITE_SOME_KEY}
           </h2>
           <p className="my-3 text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
             reactjs-vite-tailwindcss-boilerplate

@@ -6,14 +6,15 @@ import { Spinner } from '../Spinner';
 
 type Props = {
   posts?: Post[];
+  isLoading: boolean;
   size: Size;
   src: string;
 };
 
 export const Presenter: React.VFC<Props> = (props) => {
-  const { posts, size, src } = props;
+  const { posts, isLoading, size, src } = props;
 
-  if (!posts)
+  if (isLoading)
     return (
       <div className="flex justify-center items-center w-screen h-screen">
         <Spinner size="xl" />
@@ -26,9 +27,8 @@ export const Presenter: React.VFC<Props> = (props) => {
         <Avatar size={size} src={src} />
       </div>
       <ul>
-        {posts.map((post) => (
-          <li key={post.id.toString()}>{post.title}</li>
-        ))}
+        {posts &&
+          posts.map((post) => <li key={post.id.toString()}>{post.title}</li>)}
       </ul>
     </div>
   );

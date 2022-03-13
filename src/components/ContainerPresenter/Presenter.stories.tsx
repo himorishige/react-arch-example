@@ -38,6 +38,7 @@ export const Data: ComponentStoryObj<typeof Presenter> = {
     ],
     size: 'large',
     src: 'https://avatars.dicebear.com/v2/male/e828b4072fdb3dc6312b67977f0b247a.svg',
+    isLoading: false,
   },
 };
 

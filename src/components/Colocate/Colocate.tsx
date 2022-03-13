@@ -7,12 +7,12 @@ import { Spinner } from '../Spinner';
 export const Colocate: React.VFC = () => {
   const { usePostsQuery } = useReactQuery();
 
-  const { data: posts } = usePostsQuery({
+  const { data: posts, isLoading } = usePostsQuery({
     deps: ['colocate'],
     params: { _limit: 5 },
   });
 
-  if (!posts)
+  if (isLoading)
     return (
       <div className="flex justify-center items-center w-screen h-screen">
         <Spinner size="xl" />
@@ -28,9 +28,8 @@ export const Colocate: React.VFC = () => {
         />
       </div>
       <ul>
-        {posts.map((post) => (
-          <li key={post.id.toString()}>{post.title}</li>
-        ))}
+        {posts &&
+          posts.map((post) => <li key={post.id.toString()}>{post.title}</li>)}
       </ul>
     </div>
   );

@@ -39,6 +39,7 @@ describe('<Presenter />', () => {
           body: 'repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque',
         },
       ],
+      isLoading: false,
     };
     const { container } = render(<Presenter {...props} />);
 
