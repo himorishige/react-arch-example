@@ -1,9 +1,9 @@
-import { useReactQuery } from 'src/hooks/useReactQuery';
+import { usePosts } from 'src/hooks/usePosts';
 
 import { Presenter } from './Presenter';
 
 export const Container: React.VFC = () => {
-  const { usePostsQuery } = useReactQuery();
+  const { usePostsQuery } = usePosts();
 
   const { data: posts, isLoading } = usePostsQuery({
     deps: ['container'],

@@ -1,11 +1,11 @@
-import { useReactQuery } from 'src/hooks/useReactQuery';
+import { usePosts } from 'src/hooks/usePosts';
 
 import { Avatar } from 'src/components/Avatar';
 
 import { Spinner } from '../Spinner';
 
 export const Colocate: React.VFC = () => {
-  const { usePostsQuery } = useReactQuery();
+  const { usePostsQuery } = usePosts();
 
   const { data: posts, isLoading } = usePostsQuery({
     deps: ['colocate'],

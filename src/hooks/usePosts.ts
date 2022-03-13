@@ -9,7 +9,7 @@ import {
 
 import type { CreatePostDto, GetPostParams, Post } from 'src/types';
 
-interface UseReactQuery {
+interface UsePosts {
   usePostsQuery: ({
     params,
     deps,
@@ -23,7 +23,7 @@ interface UseReactQuery {
   >;
 }
 
-export const useReactQuery = (): UseReactQuery => {
+export const usePosts = (): UsePosts => {
   const usePostsQuery = ({
     params,
     deps,
