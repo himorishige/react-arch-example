@@ -1,5 +1,9 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import { QueryClientProvider } from 'react-query';
 import { describe, it, expect } from 'vitest';
 
@@ -13,6 +17,14 @@ describe('<Container />', () => {
       <QueryClientProvider client={queryClient}>
         <Container />
       </QueryClientProvider>,
+    );
+
+    waitForElementToBeRemoved(
+      () => [
+        ...screen.queryAllByTestId(/loading/i),
+        ...screen.queryAllByText(/loading/i),
+      ],
+      { timeout: 4000 },
     );
 
     const posts = await screen.findAllByRole('listitem');
