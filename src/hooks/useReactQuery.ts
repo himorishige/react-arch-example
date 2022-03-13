@@ -7,29 +7,20 @@ import {
   useQueryWrapper,
 } from 'src/lib/react-query/queryWrapper';
 
-export type Post = {
-  id: number;
-  title: string;
-  body: string;
-};
-
-export type Params = {
-  _limit?: number;
-};
-
-export type ParamsDTO = {
-  title: string;
-  body: string;
-  userId: number;
-};
+import type { CreatePostDto, GetPostParams, Post } from 'src/types';
 
 interface UseReactQuery {
   usePostsQuery: ({
     params,
     deps,
     options,
-  }: TUseQueryOptions<Params>) => UseQueryResult<Post[]>;
-  usePostsMutate: () => UseMutationResult<void, unknown, ParamsDTO, unknown>;
+  }: TUseQueryOptions<GetPostParams>) => UseQueryResult<Post[]>;
+  usePostsMutate: () => UseMutationResult<
+    void,
+    unknown,
+    CreatePostDto,
+    unknown
+  >;
 }
 
 export const useReactQuery = (): UseReactQuery => {
@@ -37,7 +28,7 @@ export const useReactQuery = (): UseReactQuery => {
     params,
     deps,
     options,
-  }: TUseQueryOptions<Params>): UseQueryResult<Post[]> => {
+  }: TUseQueryOptions<GetPostParams>): UseQueryResult<Post[]> => {
     return useQueryWrapper<Post[]>({
       queryKey: 'posts',
       deps,
@@ -49,10 +40,10 @@ export const useReactQuery = (): UseReactQuery => {
   const usePostsMutate = (): UseMutationResult<
     void,
     unknown,
-    ParamsDTO,
+    CreatePostDto,
     unknown
   > => {
-    return useMutateWrapper<ParamsDTO>({
+    return useMutateWrapper<CreatePostDto>({
       fetcher: (params) => api.post('posts', { params }),
     });
   };

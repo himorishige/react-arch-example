@@ -1,8 +1,8 @@
-import { Post } from 'src/hooks/useReactQuery';
-
 import { Avatar, Size } from 'src/components/Avatar';
 
 import { Spinner } from '../Spinner';
+
+import type { Post } from 'src/types';
 
 type Props = {
   posts?: Post[];
