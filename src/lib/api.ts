@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { REACT_APP_API_URL } from 'src/config';
 
 export const api = axios.create({
-  baseURL: `http://jsonplaceholder.typicode.com/`,
+  baseURL: REACT_APP_API_URL,
 });
 
 api.interceptors.response.use(
@@ -9,9 +10,6 @@ api.interceptors.response.use(
     return Promise.resolve(response);
   },
   (error) => {
-    console.log(error);
-    return Promise.reject({
-      error: error.response,
-    });
+    return Promise.reject(error);
   },
 );
