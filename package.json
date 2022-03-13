@@ -12,7 +12,7 @@
     "test:ui": "vitest --ui",
     "lint": "eslint src --max-warnings=0",
     "lint:css": "stylelint 'src/**/*.@(css|scss)'",
-    "type-check": "tsc --project tsconfig.json",
+    "type-check": "tsc --noEmit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
