@@ -2,6 +2,8 @@ import { Post } from 'src/hooks/useReactQuery';
 
 import { Avatar, Size } from 'src/components/Avatar';
 
+import { Spinner } from '../Spinner';
+
 type Props = {
   posts?: Post[];
   size: Size;
@@ -11,7 +13,12 @@ type Props = {
 export const Presenter: React.VFC<Props> = (props) => {
   const { posts, size, src } = props;
 
-  if (!posts) return <div>loading...</div>;
+  if (!posts)
+    return (
+      <div className="flex justify-center items-center w-screen h-screen">
+        <Spinner size="xl" />
+      </div>
+    );
 
   return (
     <div>

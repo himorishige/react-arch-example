@@ -5,7 +5,10 @@ import { Presenter } from './Presenter';
 export const Container: React.VFC = () => {
   const { usePostsQuery } = useReactQuery();
 
-  const { data: posts } = usePostsQuery({ params: { _limit: 5 } });
+  const { data: posts } = usePostsQuery({
+    deps: ['container'],
+    params: { _limit: 5 },
+  });
 
   return (
     <Presenter

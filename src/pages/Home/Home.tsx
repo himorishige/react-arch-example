@@ -1,11 +1,12 @@
 import { useReactQuery } from 'src/hooks/useReactQuery';
 
 import { Avatar } from 'src/components/Avatar';
+import { Spinner } from 'src/components/Spinner';
 
 export const Home: React.VFC = () => {
   const { usePostsMutate, usePostsQuery } = useReactQuery();
   const { data, isLoading, error } = usePostsQuery({
-    deps: '1',
+    deps: ['Home'],
     params: {
       _limit: 5,
     },
@@ -13,8 +14,12 @@ export const Home: React.VFC = () => {
 
   const { mutate } = usePostsMutate();
 
-  if (!data) return null;
-  console.log(error);
+  if (!data)
+    return (
+      <div className="flex justify-center items-center w-screen h-screen">
+        <Spinner size="xl" />
+      </div>
+    );
 
   const handler = () => {
     mutate(

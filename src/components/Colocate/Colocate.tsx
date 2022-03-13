@@ -2,12 +2,22 @@ import { useReactQuery } from 'src/hooks/useReactQuery';
 
 import { Avatar } from 'src/components/Avatar';
 
+import { Spinner } from '../Spinner';
+
 export const Colocate: React.VFC = () => {
   const { usePostsQuery } = useReactQuery();
 
-  const { data: posts } = usePostsQuery({ params: { _limit: 5 } });
+  const { data: posts } = usePostsQuery({
+    deps: ['colocate'],
+    params: { _limit: 5 },
+  });
 
-  if (!posts) return <div>loading...</div>;
+  if (!posts)
+    return (
+      <div className="flex justify-center items-center w-screen h-screen">
+        <Spinner size="xl" />
+      </div>
+    );
 
   return (
     <div>
