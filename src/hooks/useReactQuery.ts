@@ -17,13 +17,19 @@ export type Params = {
   _limit?: number;
 };
 
+export type ParamsDTO = {
+  title: string;
+  body: string;
+  userId: number;
+};
+
 interface UseReactQuery {
   usePostsQuery: ({
     params,
     deps,
     options,
   }: TUseQueryOptions<Params>) => UseQueryResult<Post[]>;
-  usePostsMutate: () => UseMutationResult<void, unknown, Params, unknown>;
+  usePostsMutate: () => UseMutationResult<void, unknown, ParamsDTO, unknown>;
 }
 
 export const useReactQuery = (): UseReactQuery => {
@@ -43,11 +49,11 @@ export const useReactQuery = (): UseReactQuery => {
   const usePostsMutate = (): UseMutationResult<
     void,
     unknown,
-    Params,
+    ParamsDTO,
     unknown
   > => {
-    return useMutateWrapper<Params>({
-      fetcher: (params) => api.post('users', { params }),
+    return useMutateWrapper<ParamsDTO>({
+      fetcher: (params) => api.post('posts', { params }),
     });
   };
 
