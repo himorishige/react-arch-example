@@ -1,11 +1,12 @@
 import { UseMutationResult, UseQueryResult } from 'react-query';
-import { usePostsRepository } from 'src/repositories/postsRepository';
 
 import {
   TUseQueryOptions,
   useMutateWrapper,
   useQueryWrapper,
 } from 'src/lib/react-query/queryWrapper';
+
+import { usePostsRepository } from 'src/repositories/postsRepository';
 
 import type { CreatePostDto, GetPostParams, Post } from 'src/types';
 

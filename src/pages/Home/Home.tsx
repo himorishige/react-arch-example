@@ -1,8 +1,9 @@
 import { REACT_APP_VITE_SOME_KEY } from 'src/config';
-import { usePosts } from 'src/hooks/usePosts';
 
 import { Avatar } from 'src/components/Avatar';
 import { Spinner } from 'src/components/Spinner';
+
+import { usePosts } from 'src/hooks/usePosts';
 
 export const Home: React.VFC = () => {
   const { usePostsMutate, usePostsQuery } = usePosts();

@@ -1,8 +1,7 @@
-import { usePosts } from 'src/hooks/usePosts';
-
 import { Avatar } from 'src/components/Avatar';
+import { Spinner } from 'src/components/Spinner';
 
-import { Spinner } from '../Spinner';
+import { usePosts } from 'src/hooks/usePosts';
 
 export const Colocate: React.VFC = () => {
   const { usePostsQuery } = usePosts();
