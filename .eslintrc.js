@@ -91,12 +91,17 @@ module.exports = {
         pathGroups: [
           { pattern: 'src/lib/**', group: 'internal', position: 'before' },
           {
-            pattern: 'src/generated/**',
+            pattern: 'src/repositories/**',
             group: 'internal',
             position: 'before',
           },
           {
             pattern: 'src/components/**',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: 'src/hooks/**',
             group: 'internal',
             position: 'before',
           },
