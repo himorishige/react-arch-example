@@ -6,7 +6,7 @@ import {
   useQueryWrapper,
 } from 'src/lib/react-query/queryWrapper';
 
-import { usePostsRepository } from 'src/repositories/postsRepository';
+import { postsRepository } from 'src/repositories/postsRepository';
 
 import type { CreatePostDto, GetPostParams, Post } from 'src/types';
 
@@ -25,8 +25,6 @@ interface UsePosts {
 }
 
 export const usePosts = (): UsePosts => {
-  const { getPosts, createPost } = usePostsRepository();
-
   const usePostsQuery = ({
     params,
     deps,
@@ -36,7 +34,7 @@ export const usePosts = (): UsePosts => {
       queryKey: 'posts',
       deps,
       options,
-      fetcher: () => getPosts(params),
+      fetcher: () => postsRepository.getPosts(params),
     });
   };
 
@@ -47,7 +45,7 @@ export const usePosts = (): UsePosts => {
     unknown
   > => {
     return useMutateWrapper<CreatePostDto>({
-      fetcher: (params) => createPost(params),
+      fetcher: (params) => postsRepository.createPost(params),
     });
   };
 
