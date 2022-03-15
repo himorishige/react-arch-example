@@ -12,6 +12,9 @@ export default defineConfig({
     tsconfigPaths(),
     env({ prefix: 'REACT_APP_' }),
   ],
+  server: {
+    open: true,
+  },
   test: {
     globals: true,
     environment: 'jsdom',
