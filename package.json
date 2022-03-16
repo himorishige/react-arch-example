@@ -59,6 +59,8 @@
     "jest-extended": "^1.2.0",
     "jest-watch-typeahead": "^1.0.0",
     "jsdom": "^19.0.0",
+    "msw": "^0.39.2",
+    "msw-storybook-addon": "^1.6.1",
     "postcss": "^8.4.5",
     "prettier": "2.5.1",
     "react-test-renderer": "^17.0.2",
@@ -76,5 +78,8 @@
     "vite-plugin-svgr": "^1.0.1",
     "vite-tsconfig-paths": "^3.3.17",
     "vitest": "^0.6.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
