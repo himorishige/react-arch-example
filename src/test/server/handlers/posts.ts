@@ -9,7 +9,7 @@ import type {
   RestRequest,
 } from 'msw';
 
-const mock: Post[] = [
+export const postsMockData: Post[] = [
   {
     id: 1,
     title:
@@ -42,7 +42,7 @@ const mockPostsResponse: ResponseResolver<
   RestRequest<never, PathParams>,
   RestContext
 > = (_, res, ctx) => {
-  return res(ctx.delay(), ctx.json(mock));
+  return res(ctx.delay(), ctx.json(postsMockData));
 };
 
 export const postsHandlers = [
