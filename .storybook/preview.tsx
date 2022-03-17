@@ -24,17 +24,18 @@ export const parameters: Parameters = {
   },
 };
 
-const generateTestQueryClient = (): QueryClient => {
-  const client = generateTestQueryClient();
-  const options = client.getDefaultOptions();
-  options.queries = { ...options.queries, retry: false };
-  return client;
-};
-
 export const decorators: DecoratorFn[] = [
   mswDecorator as DecoratorFn,
   (story) => {
-    const queryClient = generateTestQueryClient();
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: false,
+          refetchIntervalInBackground: false,
+          retry: false,
+        },
+      },
+    });
 
     return (
       <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
