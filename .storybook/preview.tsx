@@ -1,15 +1,17 @@
 import 'tailwindcss/tailwind.css';
 import { Parameters } from '@storybook/addons';
-import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 import type { DecoratorFn } from '@storybook/react';
 
 // Disable `react-query` error logging
-setLogger({
-  error: () => {},
-  log: (...params) => console.log(...params),
-  warn: (...params) => console.warn(...params),
-});
+const customLogger = {
+  log: console.log,
+  warn: console.warn,
+  error: (): void => {
+    // swallow errors without printing out
+  },
+};
 
 // Start Mock Service Worker
 initialize({ onUnhandledRequest: 'bypass' });
@@ -35,6 +37,7 @@ export const decorators: DecoratorFn[] = [
           retry: false,
         },
       },
+      logger: customLogger,
     });
 
     return (

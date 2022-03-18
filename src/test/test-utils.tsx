@@ -1,21 +1,25 @@
 import { render, RenderResult } from '@testing-library/react';
 import React, { ReactElement } from 'react';
-import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { generateQueryClient } from 'src/lib/react-query/queryClient';
 
-setLogger({
+const customLogger = {
   log: console.log,
   warn: console.warn,
-  error: () => {
+  error: (): void => {
     // swallow errors without printing out
   },
-});
+};
 
 const generateTestQueryClient = (): QueryClient => {
   const client = generateQueryClient();
   const options = client.getDefaultOptions();
+  const logger = client.getLogger();
   options.queries = { ...options.queries, retry: false };
+  logger.log = customLogger.log;
+  logger.warn = customLogger.warn;
+  logger.error = customLogger.error;
   return client;
 };
 
