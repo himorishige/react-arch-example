@@ -9,27 +9,27 @@ export const ColocateStateIndex: React.VFC = () => {
       <ul>
         <li>
           <Link to="state1" className="underline">
-            State 1
+            State 1 Leave it.
           </Link>
         </li>
         <li>
           <Link to="state1" className="underline">
-            State 2
+            State 2 Colocate state.
           </Link>
         </li>
         <li>
           <Link to="state1" className="underline">
-            State 3
+            State 3 Lift state.
           </Link>
         </li>
         <li>
           <Link to="state1" className="underline">
-            State 4
+            State 4 Use Component Composition.
           </Link>
         </li>
         <li>
           <Link to="state1" className="underline">
-            State 5
+            State 5 Move State to Context Provider.
           </Link>
         </li>
       </ul>
