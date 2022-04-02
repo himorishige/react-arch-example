@@ -16,6 +16,7 @@ export function generateQueryClient(): QueryClient {
       queries: {
         onError: queryErrorHandler,
         // useErrorBoundary: true,
+        suspense: true,
         retry: false,
         staleTime: 300000, // 5 min
         cacheTime: 300000, // 5 min
