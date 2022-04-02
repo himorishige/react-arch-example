@@ -7,7 +7,7 @@ export const Posts: React.VFC = () => {
 
   const { data: posts } = usePostsQuery({
     deps: ['suspense'],
-    params: { _limit: 5 },
+    params: { _limit: 3 },
     options: {
       suspense: true,
     },

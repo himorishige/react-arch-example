@@ -41,8 +41,9 @@ export const postsMockData: Post[] = [
 const mockPostsResponse: ResponseResolver<
   RestRequest<never, PathParams>,
   RestContext
-> = (_, res, ctx) => {
-  return res(ctx.delay(2000), ctx.json(postsMockData));
+> = (req, res, ctx) => {
+  const limit = req.url.searchParams.get('_limit');
+  return res(ctx.delay(2000), ctx.json(postsMockData.slice(0, Number(limit))));
 };
 
 export const postsHandlers = [
