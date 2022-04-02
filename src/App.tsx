@@ -15,6 +15,9 @@ export const App: React.VFC = () => {
         <Link to="colocate" className="mr-2 underline">
           Colocate
         </Link>
+        <Link to="suspense" className="mr-2 underline">
+          Suspense
+        </Link>
         <Link to="colocate-state" className="underline">
           ColocateState
         </Link>

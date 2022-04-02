@@ -8,6 +8,7 @@ import { ColocateState5 } from 'src/pages/ColocateState/ColocateState5';
 import { ColocateStateIndex } from 'src/pages/ColocateState/ColocateStateIndex';
 import { ContainerPresenterPage } from 'src/pages/ContainerPresenterPage';
 import { Home } from 'src/pages/Home';
+import { SuspensePage } from 'src/pages/SuspensePage';
 
 export const location = new ReactLocation();
 export const routes: Route[] = [
@@ -22,6 +23,10 @@ export const routes: Route[] = [
   {
     path: 'colocate',
     element: <ColocatePage />,
+  },
+  {
+    path: 'suspense',
+    element: <SuspensePage />,
   },
   {
     path: 'colocate-state',
