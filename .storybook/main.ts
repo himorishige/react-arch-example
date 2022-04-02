@@ -7,6 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 const config = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
+    '@storybook/addon-a11y',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     {
@@ -20,7 +21,10 @@ const config = {
   ],
   framework: '@storybook/react',
   core: {
-    builder: 'storybook-builder-vite',
+    builder: '@storybook/builder-vite',
+  },
+  features: {
+    storyStoreV7: true,
   },
   async viteFinal(config) {
     const plugins = config.plugins.filter((plugin) => {
