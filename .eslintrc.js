@@ -25,8 +25,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2020,
-    sourceType: 'module',
+    project: './tsconfig.json',
   },
   plugins: [
     'react',
@@ -51,7 +50,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/explicit-function-return-type': 'warn',
-    '@typescript-eslint/no-non-null-assertion': 'warn',
     'unused-imports/no-unused-vars': [
       'warn',
       {
@@ -70,6 +68,7 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/strict-boolean-expressions': 'warn',
     'tailwindcss/classnames-order': 'warn',
     'tailwindcss/no-custom-classname': 'warn',
     'tailwindcss/no-contradicting-classname': 'error',

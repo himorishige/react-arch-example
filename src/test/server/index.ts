@@ -1,5 +1,5 @@
 export const initMocks = (): void => {
-  if (!!process.env.REACT_APP_API_MOCKING === true) {
+  if (!(process.env.REACT_APP_API_MOCKING == null) === true) {
     if (typeof window === 'undefined') {
       import('./server').then((module) => {
         module.server.listen({ onUnhandledRequest: 'bypass' });

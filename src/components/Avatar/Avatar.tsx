@@ -39,7 +39,7 @@ export const Avatar: React.VFC<AvatarProps> = ({
   src,
   alt,
 }) => {
-  if (!src) {
+  if (src == null || src === '') {
     return <EmptyAvatar size={size} />;
   }
 
