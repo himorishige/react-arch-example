@@ -42,7 +42,7 @@ const mockPostsResponse: ResponseResolver<
   RestRequest<never, PathParams>,
   RestContext
 > = (_, res, ctx) => {
-  return res(ctx.delay(), ctx.json(postsMockData));
+  return res(ctx.delay(2000), ctx.json(postsMockData));
 };
 
 export const postsHandlers = [

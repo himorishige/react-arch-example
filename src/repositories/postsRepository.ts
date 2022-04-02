@@ -9,7 +9,6 @@ interface PostsRepository {
 
 export const postsRepository: PostsRepository = {
   getPosts: async (params?: GetPostParams): Promise<Post[]> => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
     const response = await api.get<Post[]>('posts', { params });
     return response.data;
   },
