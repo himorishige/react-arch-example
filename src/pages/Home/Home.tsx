@@ -1,4 +1,9 @@
+import { useNavigate } from '@tanstack/react-location';
 import { REACT_APP_VITE_SOME_KEY } from 'src/config';
+
+import { queryClient } from 'src/lib/react-query/queryClient';
+
+import { postsRepository } from 'src/repositories/postsRepository';
 
 import { Avatar } from 'src/components/Avatar';
 import { Spinner } from 'src/components/Spinner';
@@ -6,6 +11,7 @@ import { Spinner } from 'src/components/Spinner';
 import { usePosts } from 'src/hooks/usePosts';
 
 export const Home: React.VFC = () => {
+  const navigate = useNavigate();
   const { usePostsMutate, usePostsQuery } = usePosts();
   const { isLoading } = usePostsQuery({
     deps: ['Home'],
@@ -55,6 +61,18 @@ export const Home: React.VFC = () => {
           </p>
         </div>
       </div>
+      <button
+        type="button"
+        onClick={(): void => {
+          queryClient.getQueryData(['posts', 'suspense']) ??
+            queryClient.prefetchQuery(['posts', 'suspense'], () =>
+              postsRepository.getPosts({ _limit: 4 }),
+            );
+          navigate({ to: './suspense', replace: true });
+        }}
+      >
+        Render as you fetch
+      </button>
     </div>
   );
 };
