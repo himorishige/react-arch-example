@@ -10,6 +10,10 @@ import { ContainerPresenterPage } from 'src/pages/ContainerPresenterPage';
 import { Home } from 'src/pages/Home';
 import { SuspensePage } from 'src/pages/SuspensePage';
 
+import { queryClient } from 'src/lib/react-query/queryClient';
+
+import { postsRepository } from 'src/repositories/postsRepository';
+
 export const location = new ReactLocation();
 export const routes: Route[] = [
   {
@@ -26,7 +30,15 @@ export const routes: Route[] = [
   },
   {
     path: 'suspense',
-    element: <SuspensePage />,
+    // element: <SuspensePage />,
+    element: () =>
+      import('src/pages/SuspensePage/SuspensePage').then((mod) => (
+        <mod.SuspensePage />
+      )),
+    // loader: () =>
+    //   queryClient.prefetchQuery(['posts', 'suspense'], () =>
+    //     postsRepository.getPosts({ _limit: 4 }),
+    //   ),
   },
   {
     path: 'colocate-state',
