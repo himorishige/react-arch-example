@@ -3,6 +3,8 @@ import 'jest-extended';
 import 'jest-extended/all';
 import { server } from '../src/test/server/server';
 
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 afterAll(() => server.close());
 afterEach(() => server.resetHandlers());

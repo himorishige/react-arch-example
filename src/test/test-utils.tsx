@@ -34,10 +34,13 @@ export function renderWithQueryClient(
   );
 }
 
+type Props = {
+  children: React.ReactNode;
+};
 // from https://tkdodo.eu/blog/testing-react-query#for-custom-hooks
-export const createQueryClientWrapper = (): React.FC => {
+export const createQueryClientWrapper = (): React.FC<Props> => {
   const queryClient = generateTestQueryClient();
-  const QueryClientWrapper: React.FC = ({ children }) => (
+  const QueryClientWrapper: React.FC<Props> = ({ children }) => (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
   return QueryClientWrapper;
