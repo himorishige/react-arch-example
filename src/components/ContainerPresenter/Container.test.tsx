@@ -1,9 +1,5 @@
 import '@testing-library/jest-dom';
-import {
-  screen,
-  waitFor,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { renderWithQueryClient } from 'src/test/test-utils';
 import { describe, it, expect } from 'vitest';
 
