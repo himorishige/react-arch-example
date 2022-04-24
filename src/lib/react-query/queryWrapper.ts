@@ -1,16 +1,17 @@
 import { useCallback } from 'react';
 import {
-  QueryKey,
   useMutation,
-  UseMutationOptions,
-  UseMutationResult,
   useQuery,
-  useQueryClient,
-  UseQueryOptions,
-  UseQueryResult,
+  useQueryClient
 } from 'react-query';
 
-import { QueryKeysTypes } from './constants';
+import type { QueryKeysTypes } from './constants';
+import type {
+  QueryKey,
+  UseMutationOptions,
+  UseMutationResult,
+  UseQueryOptions,
+  UseQueryResult} from 'react-query';
 
 // QueryClientWrapper
 export function useQueryClientWrapper(): {

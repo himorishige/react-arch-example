@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
-
 import { Spinner } from './Spinner';
+
+import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
 
 export default { title: 'Spinner', component: Spinner } as ComponentMeta<
   typeof Spinner

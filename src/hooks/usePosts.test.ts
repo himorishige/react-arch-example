@@ -1,12 +1,13 @@
 import { renderHook, waitFor } from '@testing-library/react';
 import { postsMockData } from 'src/test/server/handlers/posts';
 import { createQueryClientWrapper } from 'src/test/test-utils';
-import { Post } from 'src/types';
 import { vi } from 'vitest';
 
 import { postsRepository } from 'src/repositories/postsRepository';
 
 import { usePosts } from './usePosts';
+
+import type { Post } from 'src/types';
 
 test('posts', async () => {
   const { result } = renderHook(

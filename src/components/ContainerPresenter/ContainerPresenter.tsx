@@ -1,4 +1,5 @@
-import { Avatar, Size } from 'src/components/Avatar';
+import type { Size } from 'src/components/Avatar';
+import { Avatar } from 'src/components/Avatar';
 import { Spinner } from 'src/components/Spinner';
 
 import { usePosts } from 'src/hooks/usePosts';

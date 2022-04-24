@@ -1,6 +1,5 @@
 import { rest } from 'msw';
 import { REACT_APP_API_URL } from 'src/config';
-import { Post } from 'src/types';
 
 import type {
   PathParams,
@@ -8,6 +7,8 @@ import type {
   RestContext,
   RestRequest,
 } from 'msw';
+import type { Post } from 'src/types';
+
 
 export const postsMockData: Post[] = [
   {

@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
-
 import { Avatar } from './Avatar';
+
+import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 
 export default { title: 'Avatar', component: Avatar } as ComponentMeta<
   typeof Avatar

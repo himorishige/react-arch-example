@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
-
 import { Presenter } from './Presenter';
+
+import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
 
 export default { title: 'Presenter', component: Presenter } as ComponentMeta<
   typeof Presenter

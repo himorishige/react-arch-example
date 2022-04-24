@@ -1,4 +1,4 @@
-import { ReactLocation, Route } from '@tanstack/react-location';
+import { ReactLocation } from '@tanstack/react-location';
 import { ColocatePage } from 'src/pages/ColocatePage';
 import { ColocateState1 } from 'src/pages/ColocateState/ColocateState1';
 import { ColocateState2 } from 'src/pages/ColocateState/ColocateState2';
@@ -8,11 +8,8 @@ import { ColocateState5 } from 'src/pages/ColocateState/ColocateState5';
 import { ColocateStateIndex } from 'src/pages/ColocateState/ColocateStateIndex';
 import { ContainerPresenterPage } from 'src/pages/ContainerPresenterPage';
 import { Home } from 'src/pages/Home';
-import { SuspensePage } from 'src/pages/SuspensePage';
 
-import { queryClient } from 'src/lib/react-query/queryClient';
-
-import { postsRepository } from 'src/repositories/postsRepository';
+import type { Route } from '@tanstack/react-location';
 
 export const location = new ReactLocation();
 export const routes: Route[] = [
