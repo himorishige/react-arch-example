@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { renderWithQueryClient } from 'src/test/test-utils';
 import { describe, it, expect } from 'vitest';
 
@@ -9,11 +9,11 @@ describe('<Colocate />', () => {
   it('should render the 5 posts as default', async () => {
     const { container } = renderWithQueryClient(<Colocate />);
 
-    waitForElementToBeRemoved(
-      () => [
-        ...screen.queryAllByTestId(/loading/i),
-        ...screen.queryAllByText(/loading/i),
-      ],
+    await waitFor(
+      () => {
+        expect(screen.queryAllByTestId(/loading/i)).toHaveLength(0);
+        expect(screen.queryAllByText(/loading/i)).toHaveLength(0);
+      },
       { timeout: 4000 },
     );
 
