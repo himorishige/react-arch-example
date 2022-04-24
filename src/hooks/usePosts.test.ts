@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, waitFor } from '@testing-library/react';
 import { postsMockData } from 'src/test/server/handlers/posts';
 import { createQueryClientWrapper } from 'src/test/test-utils';
 import { Post } from 'src/types';
@@ -9,7 +9,7 @@ import { postsRepository } from 'src/repositories/postsRepository';
 import { usePosts } from './usePosts';
 
 test('posts', async () => {
-  const { result, waitFor } = renderHook(
+  const { result } = renderHook(
     () =>
       usePosts().usePostsQuery({
         params: {
@@ -31,7 +31,7 @@ test('getPosts', async () => {
     async (): Promise<Post[]> => postsMockData.slice(0, 3),
   );
 
-  const { result, waitFor } = renderHook(
+  const { result } = renderHook(
     () =>
       usePosts().usePostsQuery({
         params: {
