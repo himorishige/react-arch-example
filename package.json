@@ -26,7 +26,6 @@
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
-    "@storybook/testing-react": "^1.2.4",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
@@ -34,6 +33,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-vite": "^0.1.30",
     "@storybook/react": "^6.4.22",
+    "@storybook/testing-react": "^1.2.4",
     "@tanstack/react-location-devtools": "^3.4.4",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^13.1.1",
