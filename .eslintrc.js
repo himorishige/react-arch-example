@@ -49,7 +49,6 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
-    '@typescript-eslint/explicit-function-return-type': 'warn',
     '@typescript-eslint/consistent-type-imports': 'error',
     'unused-imports/no-unused-vars': [
       'warn',
