@@ -1,17 +1,23 @@
+import { useState } from 'react';
+import { useQueryClient } from 'react-query';
+
 import { Avatar } from 'src/components/Avatar';
 
-import { usePosts } from 'src/hooks/usePosts';
+import { usePosts2 } from '../../hooks/usePosts2';
 
 export const Posts: React.VFC = () => {
-  const { usePostsQuery } = usePosts();
+  const { useFetchPosts } = usePosts2();
+  const [limit, setLimit] = useState(3);
 
-  const { data: posts } = usePostsQuery({
-    deps: ['suspense'],
-    params: { _limit: 3 },
-    options: {
-      suspense: true,
-    },
-  });
+  const queryClient = useQueryClient();
+
+  const { data: posts } = useFetchPosts(limit);
+
+  const handler = () => {
+    setLimit(5);
+    console.log(limit);
+    queryClient.invalidateQueries({ queryKey: ['posts'] });
+  };
 
   return (
     <div>
@@ -20,6 +26,11 @@ export const Posts: React.VFC = () => {
           size="large"
           src="https://avatars.dicebear.com/v2/male/e828b4072fdb3dc6312b67977f0b247a.svg"
         />
+      </div>
+      <div>
+        <button type="button" onClick={handler}>
+          Click
+        </button>
       </div>
       <ul>
         {posts &&
