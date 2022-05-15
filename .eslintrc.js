@@ -34,6 +34,7 @@ module.exports = {
     'tailwindcss',
     'import',
     'unused-imports',
+    'vitest',
   ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
