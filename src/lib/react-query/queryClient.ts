@@ -1,4 +1,4 @@
-import { QueryClient } from 'react-query';
+import { QueryClient } from '@tanstack/react-query';
 
 function queryErrorHandler(error: unknown): void {
   // error is type unknown because in js, anything can be an error (e.g. throw(5))
@@ -6,8 +6,10 @@ function queryErrorHandler(error: unknown): void {
   const title =
     error instanceof Error ? error.message : 'error connecting to server';
 
-  // some toast message
   console.warn(id, title);
+
+  // some toast message
+  //
 }
 
 export function generateQueryClient(): QueryClient {
@@ -16,11 +18,13 @@ export function generateQueryClient(): QueryClient {
       queries: {
         onError: queryErrorHandler,
         retry: false,
-        staleTime: 300000, // 5 min
-        cacheTime: 300000, // 5 min
+        staleTime: 300000,
+        cacheTime: 300000,
         refetchOnMount: false,
         refetchOnReconnect: false,
         refetchOnWindowFocus: false,
+        // suspense: true, // suspense mode
+        useErrorBoundary: false, // unused error boundary
       },
       mutations: {
         onError: queryErrorHandler,

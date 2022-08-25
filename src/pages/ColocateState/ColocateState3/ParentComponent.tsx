@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ColocateState3 } from './ColocateState3';
 import { SiblingComponent } from './SiblingComponent';
 
-export const ParentComponent: React.VFC = () => {
+export const ParentComponent: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const addCount = (): void => {

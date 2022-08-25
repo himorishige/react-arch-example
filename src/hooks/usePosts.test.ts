@@ -13,9 +13,7 @@ test('posts', async () => {
   const { result } = renderHook(
     () =>
       usePosts().usePostsQuery({
-        params: {
-          _limit: 5,
-        },
+        _limit: 5,
       }),
     {
       wrapper: createQueryClientWrapper(),
@@ -23,7 +21,7 @@ test('posts', async () => {
   );
 
   // wait for the posts data
-  await waitFor(() => result.current.data?.length === 5);
+  await waitFor(() => result.current?.data?.length === 5);
 });
 
 test('getPosts', async () => {
@@ -35,9 +33,7 @@ test('getPosts', async () => {
   const { result } = renderHook(
     () =>
       usePosts().usePostsQuery({
-        params: {
-          _limit: 5,
-        },
+        _limit: 5,
       }),
     {
       wrapper: createQueryClientWrapper(),
@@ -45,7 +41,7 @@ test('getPosts', async () => {
   );
 
   // wait for the posts data(mock)
-  await waitFor(() => result.current.data?.length === 3);
+  await waitFor(() => result.current?.data?.length === 3);
 
   spy.mockRestore();
 });

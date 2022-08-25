@@ -6,7 +6,7 @@ type Props = {
   resetCount: () => void;
 };
 
-export const GrandChildComponent: React.VFC<Props> = (props) => {
+export const GrandChildComponent: React.FC<Props> = (props) => {
   const { count, addCount, resetCount } = props;
 
   return (

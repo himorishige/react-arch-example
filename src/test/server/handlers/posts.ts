@@ -9,7 +9,6 @@ import type {
 } from 'msw';
 import type { Post } from 'src/types';
 
-
 export const postsMockData: Post[] = [
   {
     id: 1,

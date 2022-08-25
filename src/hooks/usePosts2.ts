@@ -1,10 +1,12 @@
 import { postsRepository } from '../repositories/postsRepository';
 import { useApi } from './useApi';
 
+import type { GetPostParams } from 'src/types';
+
 export const usePosts2 = () => {
-  const useFetchPosts = (_limit?: number) =>
+  const useFetchPosts = (params: GetPostParams) =>
     useApi(
-      ['posts', { _limit }],
+      ['posts', params],
       async (params) => postsRepository.getPosts(params),
       {
         suspense: true,

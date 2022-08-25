@@ -1,12 +1,12 @@
+import { QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import React from 'react';
-import { QueryClientProvider } from 'react-query';
 
 import { generateQueryClient } from 'src/lib/react-query/queryClient';
 
+import type { QueryClient } from '@tanstack/react-query';
 import type { RenderResult } from '@testing-library/react';
 import type { ReactElement } from 'react';
-import type { QueryClient} from 'react-query';
 
 const customLogger = {
   log: console.log,

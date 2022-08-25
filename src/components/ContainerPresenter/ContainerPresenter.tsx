@@ -13,12 +13,12 @@ type Props = {
   src: string;
 };
 
-export const Presenter: React.VFC<Props> = (props) => {
+export const Presenter: React.FC<Props> = (props) => {
   const { posts, isLoading, size, src } = props;
 
   if (isLoading)
     return (
-      <div className="flex justify-center items-center w-screen h-screen">
+      <div className="flex h-screen w-screen items-center justify-center">
         <Spinner size="xl" />
       </div>
     );
@@ -36,12 +36,11 @@ export const Presenter: React.VFC<Props> = (props) => {
   );
 };
 
-export const Container: React.VFC = () => {
+export const Container: React.FC = () => {
   const { usePostsQuery } = usePosts();
 
   const { data: posts, isLoading } = usePostsQuery({
-    deps: ['container'],
-    params: { _limit: 5 },
+    _limit: 5,
   });
 
   return (

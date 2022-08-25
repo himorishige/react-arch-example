@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Button } from 'src/components/Button';
 
-export const ColocateState1: React.VFC = () => {
+export const ColocateState1: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const addCount = (): void => {
@@ -15,7 +15,7 @@ export const ColocateState1: React.VFC = () => {
 
   return (
     <div className="p-2">
-      <h2 className="mb-2 text-base font-semibold tracking-wide text-blue-600 uppercase">
+      <h2 className="mb-2 text-base font-semibold uppercase tracking-wide text-blue-600">
         Colocate State 1
       </h2>
       <div>

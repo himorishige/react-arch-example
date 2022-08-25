@@ -6,24 +6,7 @@ exports[`<Avatar /> > should render the empty Avatar 1`] = `
   data-testid="empty-avatar"
 >
   <svg
-    class="w-full h-full text-gray-300"
-    fill="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-    />
-  </svg>
-</span>
-`;
-
-exports[`<Avatar /> > should render the empty Avatar 2`] = `
-<span
-  class="inline-block overflow-hidden bg-gray-100 rounded-full w-12 h-12"
-  data-testid="empty-avatar"
->
-  <svg
-    class="w-full h-full text-gray-300"
+    class="h-full w-full text-gray-300"
     fill="currentColor"
     viewBox="0 0 24 24"
   >
@@ -42,14 +25,6 @@ exports[`<Avatar /> > should render the large Avatar 1`] = `
 />
 `;
 
-exports[`<Avatar /> > should render the large Avatar 2`] = `
-<img
-  alt="Avatar"
-  class="inline-block rounded-full w-14 h-14"
-  src="https://avatars.dicebear.com/v2/male/e828b4072fdb3dc6312b67977f0b247a.svg"
-/>
-`;
-
 exports[`<Avatar /> > should render the medium Avatar as default 1`] = `
 <img
   alt="Avatar"
@@ -58,23 +33,7 @@ exports[`<Avatar /> > should render the medium Avatar as default 1`] = `
 />
 `;
 
-exports[`<Avatar /> > should render the medium Avatar as default 2`] = `
-<img
-  alt="Avatar"
-  class="inline-block rounded-full w-12 h-12"
-  src="https://avatars.dicebear.com/v2/male/e828b4072fdb3dc6312b67977f0b247a.svg"
-/>
-`;
-
 exports[`<Avatar /> > should render the small Avatar 1`] = `
-<img
-  alt="Avatar"
-  class="inline-block rounded-full w-10 h-10"
-  src="https://avatars.dicebear.com/v2/male/e828b4072fdb3dc6312b67977f0b247a.svg"
-/>
-`;
-
-exports[`<Avatar /> > should render the small Avatar 2`] = `
 <img
   alt="Avatar"
   class="inline-block rounded-full w-10 h-10"

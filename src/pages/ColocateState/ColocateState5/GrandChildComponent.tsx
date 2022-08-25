@@ -4,7 +4,7 @@ import { Button } from 'src/components/Button';
 
 import { CounterContext } from './ColocateState5';
 
-export const GrandChildComponent: React.VFC = () => {
+export const GrandChildComponent: React.FC = () => {
   const { count, addCount, resetCount } = useContext(CounterContext);
 
   return (
