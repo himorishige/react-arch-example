@@ -1,6 +1,6 @@
 import 'tailwindcss/tailwind.css';
 import { Parameters } from '@storybook/addons';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 import type { DecoratorFn } from '@storybook/react';
 
