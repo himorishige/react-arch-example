@@ -14,7 +14,10 @@
     "lint:css": "stylelint 'src/**/*.@(css|scss)'",
     "type-check": "tsc --noEmit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "ci:vrt": "reg-suit run",
+    "ci:storybook-generate": "build-storybook -c .storybook -o dist-storybook -s public",
+    "ci:storycap": "storycap --serverTimeout 60000 --captureTimeout 10000 --serverCmd 'npx http-server dist-storybook --ci -p 6006' http://localhost:6006"
   },
   "dependencies": {
     "@tanstack/react-location": "^3.7.0",
@@ -69,6 +72,11 @@
     "postcss": "^8.4.16",
     "prettier": "2.7.1",
     "react-test-renderer": "^18.2.0",
+    "reg-keygen-git-hash-plugin": "^0.12.1",
+    "reg-notify-github-plugin": "^0.12.1",
+    "reg-publish-s3-plugin": "^0.12.1",
+    "reg-suit": "^0.12.1",
+    "storycap": "^3.1.9",
     "stylelint": "^14.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",

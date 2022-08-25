@@ -3,6 +3,8 @@ import { Parameters } from '@storybook/addons';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 import type { DecoratorFn } from '@storybook/react';
+import { withScreenshot } from 'storycap';
+import React from 'react';
 
 // Disable `react-query` error logging
 const customLogger = {
@@ -27,6 +29,7 @@ export const parameters: Parameters = {
 };
 
 export const decorators: DecoratorFn[] = [
+  withScreenshot as DecoratorFn,
   mswDecorator as DecoratorFn,
   (story) => {
     const queryClient = new QueryClient({

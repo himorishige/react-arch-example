@@ -34,3 +34,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# reg-suit
+.reg
+__screenshots__

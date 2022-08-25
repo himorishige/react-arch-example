@@ -10,6 +10,7 @@ const config = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
+    'storycap',
     {
       name: '@storybook/addon-postcss',
       options: {
