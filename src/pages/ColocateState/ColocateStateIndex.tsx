@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-location';
 export const ColocateStateIndex: React.VFC = () => {
   return (
     <div className="p-2">
-      <h2 className="mb-2 text-base font-semibold tracking-wide text-blue-600 uppercase">
+      <h2 className="mb-2 text-base font-semibold uppercase tracking-wide text-blue-600">
         Colocate State Index
       </h2>
       <ul>

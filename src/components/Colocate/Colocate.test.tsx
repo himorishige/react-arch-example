@@ -14,7 +14,7 @@ describe('<Colocate />', () => {
         expect(screen.queryAllByTestId(/loading/i)).toHaveLength(0);
         expect(screen.queryAllByText(/loading/i)).toHaveLength(0);
       },
-      { timeout: 4000 },
+      { timeout: 5000 },
     );
 
     const posts = await screen.findAllByRole('listitem');

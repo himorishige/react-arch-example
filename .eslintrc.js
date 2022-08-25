@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es2020: true,
+    es2021: true,
     jest: true,
     node: true,
   },
@@ -70,9 +70,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/strict-boolean-expressions': 'warn',
-    'tailwindcss/classnames-order': 'warn',
-    'tailwindcss/no-custom-classname': 'warn',
-    'tailwindcss/no-contradicting-classname': 'error',
     'import/order': [
       'error',
       {

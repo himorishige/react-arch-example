@@ -10,21 +10,18 @@ import { Spinner } from 'src/components/Spinner';
 
 import { usePosts } from 'src/hooks/usePosts';
 
-export const Home: React.VFC = () => {
+export const Home: React.FC = () => {
   const navigate = useNavigate();
   const { usePostsMutate, usePostsQuery } = usePosts();
   const { isLoading } = usePostsQuery({
-    deps: ['Home'],
-    params: {
-      _limit: 5,
-    },
+    _limit: 5,
   });
 
   const { mutate } = usePostsMutate();
 
   if (isLoading)
     return (
-      <div className="flex justify-center items-center w-screen h-screen">
+      <div className="flex h-screen w-screen items-center justify-center">
         <Spinner size="xl" />
       </div>
     );
@@ -44,9 +41,9 @@ export const Home: React.VFC = () => {
 
   return (
     <div className="bg-white">
-      <div className="py-16 px-4 mx-auto max-w-screen-xl sm:py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-base font-semibold tracking-wide text-blue-600 uppercase">
+          <h2 className="text-base font-semibold uppercase tracking-wide text-blue-600">
             Welcome to {REACT_APP_VITE_SOME_KEY}
           </h2>
           <p className="my-3 text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">

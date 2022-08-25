@@ -1,22 +1,25 @@
-import { useState } from 'react';
-import { useQueryClient } from 'react-query';
+import { useQueryClient } from '@tanstack/react-query';
+import { useState, useTransition } from 'react';
 
 import { Avatar } from 'src/components/Avatar';
 
 import { usePosts2 } from '../../hooks/usePosts2';
 
-export const Posts: React.VFC = () => {
+export const Posts: React.FC = () => {
+  const [isPending, startTransition] = useTransition();
   const { useFetchPosts } = usePosts2();
   const [limit, setLimit] = useState(3);
 
   const queryClient = useQueryClient();
 
-  const { data: posts } = useFetchPosts(limit);
+  const { data: posts } = useFetchPosts({ _limit: limit });
 
   const handler = () => {
-    setLimit(5);
-    console.log(limit);
-    queryClient.invalidateQueries({ queryKey: ['posts'] });
+    startTransition(() => {
+      const random = Math.floor(Math.random() * 10);
+      setLimit(random);
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
+    });
   };
 
   return (
@@ -28,8 +31,12 @@ export const Posts: React.VFC = () => {
         />
       </div>
       <div>
-        <button type="button" onClick={handler}>
-          Click
+        <button
+          type="button"
+          className="border border-gray-400 p-2"
+          onClick={handler}
+        >
+          {isPending === true ? 'loading...' : 'StartTransition'}
         </button>
       </div>
       <ul>

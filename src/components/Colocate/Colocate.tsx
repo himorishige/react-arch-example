@@ -3,17 +3,16 @@ import { Spinner } from 'src/components/Spinner';
 
 import { usePosts } from 'src/hooks/usePosts';
 
-export const Colocate: React.VFC = () => {
+export const Colocate: React.FC = () => {
   const { usePostsQuery } = usePosts();
 
   const { data: posts, isLoading } = usePostsQuery({
-    deps: ['colocate'],
-    params: { _limit: 5 },
+    _limit: 5,
   });
 
   if (isLoading)
     return (
-      <div className="flex justify-center items-center w-screen h-screen">
+      <div className="flex h-screen w-screen items-center justify-center">
         <Spinner size="xl" />
       </div>
     );
