@@ -70,4 +70,4 @@ jobs:
         uses: davelosert/vitest-coverage-report-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          vite-config: vite.config.ts
+          vite-config-file: vite.config.ts
