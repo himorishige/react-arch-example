@@ -8,6 +8,7 @@ exports[`<Avatar /> > should render the empty Avatar 1`] = `
   <svg
     class="h-full w-full text-gray-300"
     fill="currentColor"
+    role="img"
     viewBox="0 0 24 24"
   >
     <path

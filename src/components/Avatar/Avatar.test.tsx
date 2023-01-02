@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
+import { axe } from 'vitest-axe';
+import * as matchers from 'vitest-axe/matchers';
+expect.extend(matchers);
 
 import { Avatar } from './Avatar';
 
@@ -20,6 +23,11 @@ describe('<Avatar />', () => {
     );
 
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('アクセシビリティチェック', async () => {
+    const { container } = render(<Avatar {...props} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it('should render the small Avatar', () => {
