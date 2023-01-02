@@ -81,7 +81,8 @@
     "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.3",
-    "vitest": "^0.26.2"
+    "vitest": "^0.26.2",
+    "vitest-axe": "^0.1.0"
   },
   "msw": {
     "workerDirectory": "public"
