@@ -1,13 +1,12 @@
 import { Presenter } from './Presenter';
 
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-
-export default { title: 'Presenter', component: Presenter } as ComponentMeta<
+export default { title: 'Presenter', component: Presenter } as Meta<
   typeof Presenter
 >;
 
-export const Data: ComponentStoryObj<typeof Presenter> = {
+export const Data: StoryObj<typeof Presenter> = {
   args: {
     posts: [
       {
@@ -43,6 +42,6 @@ export const Data: ComponentStoryObj<typeof Presenter> = {
   },
 };
 
-export const NoData: ComponentStoryObj<typeof Presenter> = {
+export const NoData: StoryObj<typeof Presenter> = {
   args: {},
 };

@@ -4,13 +4,13 @@ import { queryClient } from 'src/lib/react-query/queryClient';
 
 import { Colocate } from './Colocate';
 
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default { title: 'Colocate', component: Colocate } as ComponentMeta<
+export default { title: 'Colocate', component: Colocate } as Meta<
   typeof Colocate
 >;
 
-export const Data: ComponentStoryObj<typeof Colocate> = {
+export const Data: StoryObj<typeof Colocate> = {
   render: () => {
     return (
       <QueryClientProvider client={queryClient}>
